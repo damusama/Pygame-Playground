@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Piano (Flask)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>🎹 Web Piano</h1>
+
+<div class="keyboard">
+  <!-- 白鍵 -->
+  <div class="key white" data-note="C4"></div>
+  <div class="key black" data-note="Cs4"></div>
+
+  <div class="key white" data-note="D4"></div>
+  <div class="key black" data-note="Ds4"></div>
+
+  <div class="key white" data-note="E4"></div>
+
+  <div class="key white" data-note="F4"></div>
+  <div class="key black" data-note="Fs4"></div>
+
+  <div class="key white" data-note="G4"></div>
+  <div class="key black" data-note="Gs4"></div>
+
+  <div class="key white" data-note="A4"></div>
+  <div class="key black" data-note="As4"></div>
+
+  <div class="key white" data-note="B4"></div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
