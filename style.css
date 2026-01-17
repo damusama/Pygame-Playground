@@ -37,10 +37,11 @@ h1 {
   z-index: 10;
 }
 
-/* 押したときの影 */
+/* 押したとき */
 .white:active {
   background: #ccc;
 }
 .black:active {
   background: #333;
 }
+
