@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+  overflow: hidden;
+  text-align: center;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+.piano {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  touch-action: none;
+}
+
+.key {
+  position: absolute;
+  user-select: none;
+}
+
+/* 白鍵 */
+.white {
+  background: white;
+  border: 1px solid black;
+  z-index: 1;
+}
+
+/* 黒鍵 */
+.black {
+  background: black;
+  z-index: 2;
+}
+
+.white:active {
+  background: #ccc;
+}
+
+.black:active {
+  background: #333;
+}
