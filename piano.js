@@ -1,46 +1,48 @@
-// iOS対策：最初のタップでAudio有効化
+// iOS対策
 let audioEnabled = false;
-const enableAudio = () => {
-  audioEnabled = true;
-  document.removeEventListener("touchstart", enableAudio);
-};
-document.addEventListener("touchstart", enableAudio);
+document.addEventListener("touchstart", () => { audioEnabled = true; }, { once: true });
 
-// 鍵盤レイアウト計算
+// 白鍵・黒鍵
 const whiteKeys = document.querySelectorAll(".white");
 const blackKeys = document.querySelectorAll(".black");
 
+// 白鍵幅
 const whiteWidth = window.innerWidth / whiteKeys.length;
 
+// 白鍵配置
 whiteKeys.forEach((key, i) => {
   key.style.width = `${whiteWidth}px`;
   key.style.height = "100%";
   key.style.left = `${i * whiteWidth}px`;
 });
 
-const blackOffsets = [0.7, 1.7, 3.7, 4.7, 5.7];
+// 黒鍵配置
+const blackOffsets = [
+  0.65, 1.65, 3.65, 4.65, 5.65,  // 1オクターブ
+  7.65, 8.65, 10.65, 11.65, 12.65 // 2オクターブ
+];
 
 blackKeys.forEach((key, i) => {
-  const octave = Math.floor(i / 5);
-  const pos = blackOffsets[i % 5];
   key.style.width = `${whiteWidth * 0.6}px`;
   key.style.height = "60%";
-  key.style.left = `${(octave * 7 + pos) * whiteWidth}px`;
+  key.style.left = `${blackOffsets[i] * whiteWidth}px`;
 });
 
-// 和音対応（同時押しOK）
+// 鍵盤全体のクリック
 document.querySelectorAll(".key").forEach(key => {
   const play = () => {
     const note = key.dataset.note;
-    const audio = new Audio(`sounds/${note}.wav`);
+    console.log(`再生: ${note}`);
+    const audio = new Audio(`sounds/${encodeURIComponent(note)}.wav`);
     audio.currentTime = 0;
-    audio.play();
+    audio.play().catch(err => console.error(`エラー: ${note}`, err));
   };
 
   key.addEventListener("mousedown", play);
   key.addEventListener("touchstart", e => {
-    e.preventDefault();
+    e.preventDefault(); // スクロール誤動作防止
     play();
   });
 });
+
 

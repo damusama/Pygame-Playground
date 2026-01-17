@@ -34,10 +34,10 @@ h1 {
 /* 黒鍵 */
 .black {
   background: black;
-  z-index: 2;
+  z-index: 10;
 }
 
-/* 押したとき */
+/* 押したときの影 */
 .white:active {
   background: #ccc;
 }
