@@ -1,6 +1,6 @@
 let ctx = null;
 
-// Audio有効化
+// オーディオ有効化
 const enableAudio = () => {
   ctx = new (window.AudioContext || window.webkitAudioContext)();
   document.removeEventListener("touchstart", enableAudio);
@@ -33,7 +33,7 @@ blackKeys.forEach((key, i) => {
 document.querySelectorAll(".key").forEach(key => {
   const play = () => {
     const note = key.dataset.note;
-    const audio = new Audio(`/static/sounds/${note}.wav`);
+    const audio = new Audio(`sound/${note}.wav`);
     audio.currentTime = 0;
     audio.play();
   };
