@@ -40,8 +40,20 @@ h1 {
 /* 押したとき */
 .white:active {
   background: #ccc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .black:active {
   background: #333;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* タッチ時の影（スマホ対応） */
+.white.pressed {
+  background: #ccc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.black.pressed {
+  background: #333;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 

@@ -45,7 +45,12 @@ document.querySelectorAll(".key").forEach(key => {
   key.addEventListener("mousedown", play);
   key.addEventListener("touchstart", e => {
     e.preventDefault(); // スクロール誤動作防止
+    key.classList.add("pressed");
     play();
+  });
+  
+  key.addEventListener("touchend", e => {
+    key.classList.remove("pressed");
   });
 });
 

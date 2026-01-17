@@ -7,6 +7,10 @@ app = Flask(__name__, template_folder='.', static_folder='.')
 def index():
   return render_template("index.html")
 
+@app.route("/<path:filename>")
+def static_files(filename):
+  return send_from_directory('.', filename)
+
 @app.route("/sounds/<path:filename>")
 def sounds(filename):
   return send_from_directory("sounds", filename)
