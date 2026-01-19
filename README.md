@@ -4,7 +4,8 @@
 
 <img src="photos/gif.gif" alt="WebPiano" style="width:60%; border-radius:10px; display: block; margin: 20px auto;">
 
-本作品は、PythonとFlaskを用いて制作したブラウザ上で演奏可能な Web ピアノアプリケーションである。スマートフォンやPCのブラウザからアクセスするだけで、インストール不要で鍵盤演奏を楽しめることを目的として開発した。音域はC4からB5までの2オクターブを実装している。
+本作品は、PythonとFlaskを用いて制作したブラウザ上で演奏可能な Webピアノアプリである。スマートフォンやPCのブラウザからアクセスするだけで、インストール不要で鍵盤演奏を楽しめる。音域はC4からB5までの2オクターブを実装している。
+また、Web版に加えて、Pygameを使用したアプリ版も実装した。
 
 <img src="photos/piano.png" alt="piano" style="width:45%; border-radius:10px;">
 
@@ -23,4 +24,10 @@
 
 制作時期
 2026年1月
+
+
+
+
+
+
 
