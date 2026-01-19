@@ -32,7 +32,7 @@ class Key:
   def draw(self, screen):
     """鍵盤を描画"""
     if self.is_pressed:
-      # 押されている時は色を変更
+      # 押されている時
       color = DARK_GRAY if self.is_black else LIGHT_GRAY
     else:
       color = self.original_color
@@ -67,7 +67,7 @@ class Piano:
     self.keys = []
     self.setup_keys()
 
-    # キーマップ
+    # キー配置
     self.key_map_base = {
         pygame.K_a: 'C',
         pygame.K_s: 'D',
@@ -101,26 +101,18 @@ class Piano:
       key = Key(note, x, 50, white_width, white_height, is_black=False)
       self.keys.append(key)
 
-    # 黒鍵を配置（C#, D#, F#, G#, A#）
-    # 各オクターブの白鍵の配置: C D E F G A B
-    # 黒鍵は以下の位置に来る:
-    # C# = C と D の間 (C + 0.6の幅くらい)
-    # D# = D と E の間
-    # F# = F と G の間
-    # G# = G と A の間
-    # A# = A と B の間
-
+    # 黒鍵
     black_positions = [
-        (0, 'C#4'),  # C4とD4の間
-        (1, 'D#4'),  # D4とE4の間
-        (3, 'F#4'),  # F4とG4の間
-        (4, 'G#4'),  # G4とA4の間
-        (5, 'A#4'),  # A4とB4の間
-        (7, 'C#5'),  # C5とD5の間
-        (8, 'D#5'),  # D5とE5の間
-        (10, 'F#5'),  # F5とG5の間
-        (11, 'G#5'),  # G5とA5の間
-        (12, 'A#5'),  # A5とB5の間
+        (0, 'C#4'),
+        (1, 'D#4'),
+        (3, 'F#4'),
+        (4, 'G#4'),
+        (5, 'A#4'),
+        (7, 'C#5'),
+        (8, 'D#5'),
+        (10, 'F#5'),
+        (11, 'G#5'),
+        (12, 'A#5'),
     ]
 
     for white_index, note in black_positions:
@@ -163,10 +155,10 @@ class Piano:
         if event.key in self.key_map_base:
           note_name = self.key_map_base[event.key]
 
-          # K キーはC5固定
+          # K キーはC5
           if event.key == pygame.K_k:
             note = 'C5'
-          # その他はShiftでオクターブを変更
+          # Shiftでオクターブを変更
           elif pygame.key.get_mods() & pygame.KMOD_SHIFT:
             note = note_name + '5'
           else:
